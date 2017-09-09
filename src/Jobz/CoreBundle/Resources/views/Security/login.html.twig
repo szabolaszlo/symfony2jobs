@@ -1,0 +1,50 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block section %}
+    <div id="content">
+        <div class="content">
+            <h1>
+                Login
+            </h1>
+            <form method="post" action="{{ path('jobz_core_security_logincheck') }}" enctype="multipart/form-data">
+                <table id="job_form">
+                    <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <input value="Submit" type="submit">
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <label for="username">Username</label>
+                        </th>
+                        <td>
+                            <input id="username" name="_username" value="{{ last_username }}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="password">Password</label>
+                        </th>
+                        <td>
+                            <input id="password" name="_password" type="text">
+                        </td>
+                        {% if error %}
+                    <tr>
+                        <th>
+                            <label for="error">Error</label>
+                        </th>
+                        <td>
+                            {{ error }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}

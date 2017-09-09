@@ -1,0 +1,96 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block section %}
+    <div id="content">
+        <div class="content">
+            <h1>
+                Post a Job
+            </h1>
+            {{ form_start(form) }}
+                <table id="job_form">
+                    <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <input value="Post your job" type="submit">
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <label for="job_category_id">Category</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.category) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_type">Type</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.jobType) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_company">Company</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.company) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_url">Url</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.url) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_position">Position</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.position) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_location">Location</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.location) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_description">Description</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.description) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_how_to_apply">How to apply?</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.howToApply) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="job_email">Email</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.email) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

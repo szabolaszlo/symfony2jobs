@@ -5,6 +5,7 @@ namespace Jobz\CoreBundle\Controller;
 use Jobz\CoreBundle\Entity\Job;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 
 class JobController extends Controller
@@ -80,4 +81,35 @@ class JobController extends Controller
             'job' => $job
         ));
     }
+
+    /**
+     * Creates a new job entity.
+     *
+     * @Route("/newjob")
+     * @Method({"GET", "POST"})
+     */
+    public function newAction(Request $request)
+    {
+        if(!$this->getUser()){
+            return $this->redirectToRoute('jobz_core_security_login');
+        }
+
+        $job = new Job();
+        $form = $this->createForm('Jobz\CoreBundle\Form\JobType', $job);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($job);
+            $em->flush();
+
+            return $this->redirectToRoute('jobz_core_job_show', array('id' => $job->getId()));
+        }
+
+        return $this->render('CoreBundle:Job:new.html.twig', array(
+            'job' => $job,
+            'form' => $form->createView(),
+        ));
+    }
+
 }

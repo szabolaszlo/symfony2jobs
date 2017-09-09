@@ -1,0 +1,48 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block section %}
+    <div id="content">
+        <div class="content">
+            <h1>
+                Registration
+            </h1>
+            {{ form_start(form) }}
+                <table id="job_form">
+                    <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <input value="Submit" type="submit">
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <label for="username">Username</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.name) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="email">Email</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.email) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="password">Password</label>
+                        </th>
+                        <td>
+                            {{ form_widget(form.password) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

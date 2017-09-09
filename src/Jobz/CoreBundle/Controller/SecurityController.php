@@ -50,30 +50,4 @@ class SecurityController extends Controller
     public function logoutAction()
     {
     }
-
-
-    /**
-     * Register
-     *
-     * @Route("/registration")
-     */
-    public function registrationAction(Request $request)
-    {
-        $user = new User();
-        $form = $this->createForm('Jobz\CoreBundle\Form\UserType', $user);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $user->setRoles('ROLE_USER');
-            $em->persist($user);
-            $em->flush();
-            return $this->redirectToRoute('jobz_core_security_login');
-        }
-        return $this->render(
-            'CoreBundle:Security:registration.html.twig',
-            array(
-                'form' => $form->createView()
-            )
-        );
-    }
 }

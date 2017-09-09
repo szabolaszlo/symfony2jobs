@@ -37,7 +37,7 @@ security:
             logout:
                 path: jobz_core_security_logout
                 target: jobz_core_job_index
-            access_denied_url: access_denied
+            access_denied_url: jobz_core_security_login
 
     access_control:
-          - { path: ^/admin/, roles: ROLE_SUPER_ADMIN }
+          - { path: ^/admin, roles: ROLE_SUPER_ADMIN }

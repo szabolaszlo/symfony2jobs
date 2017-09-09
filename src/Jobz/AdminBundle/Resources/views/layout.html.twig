@@ -1,0 +1,38 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/job.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/jobs.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/admin/css/bootstrap.min.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div id="container">
+        <div id="header">
+            <div class="nav">
+                <ul>
+                    <li><a href="{{ path('jobz_core_security_logout') }}">Logout</a></li>
+                    <li><a href="{{ path('jobz_admin_job_index') }}">Jobs</a></li>
+                    <li><a href="{{ path('jobz_admin_category_index') }}">Categories</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="content">
+                <h1>
+                    <a href="/"><img src="{{ asset('bundles/core/images/jobz.gif') }}"></a>
+                </h1>
+                <div id="sub_header">
+                    <div class="post">
+                    </div>
+                    <div class="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% block section %}{% endblock %}
+    </div>
+
+{% endblock %}

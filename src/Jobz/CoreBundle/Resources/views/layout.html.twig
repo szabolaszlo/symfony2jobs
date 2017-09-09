@@ -14,9 +14,12 @@
                 <ul>
                     {% if app.user %}
                         <li><a href="{{ path('jobz_core_security_logout') }}">Logout</a></li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li><a href="{{ path('jobz_admin_job_index')}}">Admin</a></li>
+                        {% endif %}
                     {% else %}
                         <li><a href="{{ path('jobz_core_security_login')}}">Login</a></li>
-                        <li><a href="{{ path('jobz_core_security_registration')}}">Registration</a></li>
+                        <li><a href="{{ path('jobz_core_user_registration')}}">Registration</a></li>
                     {% endif %}
                 </ul>
             </div>

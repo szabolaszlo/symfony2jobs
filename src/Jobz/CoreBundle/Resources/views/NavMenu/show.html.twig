@@ -1,7 +1,9 @@
 <div class="nav-menu">
     <ul>
-        <li><a href="information.html">About us</a></li>
-        <li><a href="information.html">Posting a job</a></li>
-        <li><a href="information.html">Became a member</a></li>
+        {% for info in information %}
+        <li>
+            <a href="{{path('jobz_core_information_show', { 'id': info.id }) }}">{{ info.title }}</a>
+        </li>
+        {% endfor %}
     </ul>
 </div>

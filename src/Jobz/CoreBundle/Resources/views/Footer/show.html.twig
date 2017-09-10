@@ -1,18 +1,11 @@
 <div id="footer">
     <div class="content">
         <ul>
+            {% for info in information %}
             <li>
-                <a href="information.html">About us</a>
+                <a href="{{path('jobz_core_information_show', { 'id': info.id }) }}">{{ info.title }}</a>
             </li>
-            <li class="feed">
-                <a href="information.html">Contact</a>
-            </li>
-            <li>
-                <a href="information.html">JobZ API</a>
-            </li>
-            <li class="last">
-                <a href="information.html">Affiliates</a>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>

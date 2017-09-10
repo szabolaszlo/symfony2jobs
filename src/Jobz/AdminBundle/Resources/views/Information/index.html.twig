@@ -1,0 +1,43 @@
+{% extends "AdminBundle::layout.html.twig" %}
+
+{% block section %}
+    <h1>Information list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Position</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for information in information %}
+            <tr>
+                <td><a href="{{ path('jobz_admin_information_show', { 'id': information.id }) }}">{{ information.id }}</a></td>
+                <td>{{ information.title }}</td>
+                <td>{{ information.description }}</td>
+                <td>{{ information.position }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('jobz_admin_information_show', { 'id': information.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('jobz_admin_information_edit', { 'id': information.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jobz_admin_information_new') }}">Create a new information</a>
+        </li>
+    </ul>
+{% endblock %}
